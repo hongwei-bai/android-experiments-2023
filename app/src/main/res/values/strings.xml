@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Exp23</string>
+    <string name="generic_error_message">Something is wrong!\nPlease try again later.</string>
+</resources>
