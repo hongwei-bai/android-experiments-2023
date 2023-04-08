@@ -17,6 +17,15 @@ android {
         getByName("release") { buildConfigField("String", "staticApiToken", staticApiToken) }
     }
 
+    val paymentApiTokenDebug =
+        gradleLocalProperties(rootDir).getProperty("squareToken.token.debug") ?: "\"ci\""
+    val paymentApiTokenProd =
+        gradleLocalProperties(rootDir).getProperty("squareToken.token.prod") ?: "\"ci\""
+    buildTypes {
+        getByName("debug") { buildConfigField("String", "paymentApiToken", paymentApiTokenDebug) }
+        getByName("release") { buildConfigField("String", "paymentApiToken", paymentApiTokenProd) }
+    }
+
     defaultConfig {
         applicationId = "com.example.exp23"
         minSdk = 26

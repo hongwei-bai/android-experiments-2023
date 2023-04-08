@@ -2,7 +2,7 @@ package com.example.exp23.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.exp23.data.FuelAppRepository
+import com.example.exp23.data.Exp23AppRepository
 import com.example.exp23.ui.shared.UiState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -12,9 +12,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val fuelAppRepository: FuelAppRepository
+    private val exp23AppRepository: Exp23AppRepository
 ) : ViewModel() {
-    val fuelAppModelFlow = fuelAppRepository.fuelAppModelFlow.map {
+    val fuelAppModelFlow = exp23AppRepository.flow.map {
         HomeUiState(
             state = UiState.Success,
             cards = emptyList()
@@ -23,7 +23,7 @@ class MainViewModel @Inject constructor(
 
     fun loadMainData() {
         viewModelScope.launch(Dispatchers.IO) {
-            fuelAppRepository.fetchFuelAppData()
+            exp23AppRepository.fetchData()
         }
     }
 }

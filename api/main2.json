@@ -1,0 +1,23 @@
+{
+  "header": {
+    "name": "Experiments 2023",
+    "date": "April 1st, 2023",
+    "description": "Easter"
+  },
+  "cards": [
+    {
+      "id": 1,
+      "name": "card One",
+      "isActivated": true,
+      "isHighlight": true,
+      "expire": "2024-1-1"
+    },
+    {
+      "id": 2,
+      "name": "card Two Activated",
+      "isActivated": true,
+      "isHighlight": false,
+      "expire": "2026-1-1"
+    }
+  ]
+}
