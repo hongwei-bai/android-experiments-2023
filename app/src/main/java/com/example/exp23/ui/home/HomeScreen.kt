@@ -10,6 +10,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.exp23.BuildConfig
 import com.example.exp23.ui.shared.ErrorScreen
 import com.example.exp23.ui.shared.LoadingScreen
 import com.example.exp23.ui.shared.UiState
@@ -19,7 +20,7 @@ fun HomeScreen(
     mainViewModel: MainViewModel = hiltViewModel()
 ) {
     val uiState: HomeUiState by mainViewModel.fuelAppModelFlow.collectAsState(HomeUiState())
-    
+
     LaunchedEffect(true) {
         mainViewModel.loadMainData()
     }
@@ -64,6 +65,13 @@ fun HomeScreen(
                 Spacer(modifier = Modifier.requiredHeight(32.dp))
                 Button(onClick = { mainViewModel.updateMainData() }) {
                     Text(text = "Update Api")
+                }
+
+                Spacer(modifier = Modifier.requiredHeight(24.dp))
+                val paymentButtonText =
+                    if (BuildConfig.DEBUG) "[Sandbox]Payment" else "Payment $1!!"
+                Button(onClick = { mainViewModel.makePayment() }) {
+                    Text(text = paymentButtonText)
                 }
             }
             else -> ErrorScreen()

@@ -87,6 +87,11 @@ dependencies {
     implementation("androidx.compose.ui:ui:${Versions.compose}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
 
+    // Payment
+    implementation("com.google.android.gms:play-services-wallet:19.1.0")
+    implementation("com.squareup.sdk.in-app-payments:card-entry:1.6.2")
+    implementation("com.squareup.sdk.in-app-payments:google-pay:1.6.2")
+
     // Below is from creating new project
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")

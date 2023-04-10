@@ -13,6 +13,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.exp23.TestSingleton
 import com.example.exp23.ui.home.HomeScreen
 import com.example.exp23.ui.shared.NavigationPath
 import com.example.exp23.ui.theme.Exp23Theme
@@ -23,6 +24,7 @@ import dagger.hilt.android.AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        TestSingleton.activity = this@MainActivity
         setContent {
             Exp23Theme {
                 // A surface container using the 'background' color from the theme
