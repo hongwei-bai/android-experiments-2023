@@ -17,12 +17,16 @@ import com.example.exp23.ui.home.HomeScreen
 import com.example.exp23.ui.shared.NavigationPath
 import com.example.exp23.ui.theme.Exp23Theme
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
+import com.google.android.gms.wallet.Wallet
+import com.google.android.gms.wallet.WalletConstants
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+//        TestSingleton.activity = this@MainActivity
+        onCreateForGooglePay(this@MainActivity)
         setContent {
             Exp23Theme {
                 // A surface container using the 'background' color from the theme
@@ -60,4 +64,12 @@ fun SystemUiController() {
             darkIcons = useDarkIcons
         )
     }
+}
+
+private fun onCreateForGooglePay(activity: MainActivity) {
+    val walletOptions = Wallet.WalletOptions.Builder()
+        .setEnvironment(WalletConstants.ENVIRONMENT_TEST)
+        .build()
+
+    val mGoogleApiClient = Wallet.getPaymentsClient(activity, walletOptions)
 }

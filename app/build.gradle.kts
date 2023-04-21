@@ -64,6 +64,21 @@ android {
     packagingOptions {
         resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
     }
+
+    signingConfigs {
+        named("debug") {
+            keyAlias = "appKey"
+            keyPassword = "appKey"
+            storeFile = file("../exp23.jks")
+            storePassword = "appKey"
+        }
+        create("release") {
+            keyAlias = "appKey"
+            keyPassword = "appKey"
+            storeFile = file("../exp23.jks")
+            storePassword = "appKey"
+        }
+    }
 }
 
 dependencies {
@@ -86,6 +101,14 @@ dependencies {
     implementation("androidx.navigation:navigation-compose:2.5.3")
     implementation("androidx.compose.ui:ui:${Versions.compose}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
+
+    // Payment
+//    implementation("com.google.android.gms:play-services-wallet:19.1.0")
+//    implementation("com.squareup.sdk.in-app-payments:card-entry:1.6.2")
+//    implementation("com.squareup.sdk.in-app-payments:google-pay:1.6.2")
+//    implementation("com.stripe:stripe-android:20.21.1")
+//    implementation("com.paypal.checkout:android-sdk:0.8.8")
+    implementation("com.google.android.gms:play-services-wallet:19.1.0")
 
     // Below is from creating new project
     implementation("androidx.core:core-ktx:1.7.0")

@@ -1,10 +1,13 @@
 package com.example.exp23.ui.home
 
+import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.exp23.data.Exp23AppRepository
 import com.example.exp23.data.model.Exp23AppModel
 import com.example.exp23.ui.shared.UiState
+import com.google.android.gms.wallet.PaymentDataRequest
+import com.google.android.gms.wallet.WalletConstants
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.map
@@ -47,5 +50,9 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch(Dispatchers.IO) {
             exp23AppRepository.fetchData(false)
         }
+    }
+
+    fun googlePay() {
+
     }
 }
