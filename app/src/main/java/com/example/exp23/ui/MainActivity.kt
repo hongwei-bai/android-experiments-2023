@@ -30,13 +30,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             Exp23Theme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    SystemUiController()
-                    NavComposeApp()
-                }
+//                Surface(
+//                    modifier = Modifier.fillMaxSize(),
+//                    color = MaterialTheme.colorScheme.background
+//                ) {
+//                    SystemUiController()
+//                    NavComposeApp()
+//                }
+                ParentScreen()
             }
         }
     }
