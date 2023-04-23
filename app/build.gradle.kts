@@ -109,6 +109,8 @@ dependencies {
 //    implementation("com.stripe:stripe-android:20.21.1")
 //    implementation("com.paypal.checkout:android-sdk:0.8.8")
     implementation("com.google.android.gms:play-services-wallet:19.1.0")
+    implementation("com.squareup.sdk.in-app-payments:card-entry:1.6.2")
+    implementation("com.squareup.sdk.in-app-payments:google-pay:1.6.2")
 
     // Below is from creating new project
     implementation("androidx.core:core-ktx:${Versions.kotlin}")
