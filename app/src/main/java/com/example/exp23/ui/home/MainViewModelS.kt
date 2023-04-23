@@ -16,18 +16,34 @@ class MainViewModelS @Inject constructor() : ViewModel() {
     private val _uiState = MutableStateFlow(ScreenState())
     val uiState: StateFlow<ScreenState> = _uiState.asStateFlow()
 
+    private val _uiState1 = MutableStateFlow("")
+    val uiState1: StateFlow<String> = _uiState1.asStateFlow()
+
+    private val _uiState2 = MutableStateFlow("")
+    val uiState2: StateFlow<String> = _uiState2.asStateFlow()
+
     init {
-        _uiState.update { currentState ->
-            currentState.copy(name = "1")
-        }
+//        _uiState.update { currentState ->
+//            currentState.copy(name = "1")
+//        }
+//        GlobalScope.launch {
+//            delay(8000)
+//            _uiState.update { currentState ->
+//                currentState.copy(name = "2")
+//            }
+//            delay(4000)
+//            _uiState.update { currentState ->
+//                currentState.copy(name = "3")
+//            }
+//        }
         GlobalScope.launch {
             delay(8000)
-            _uiState.update { currentState ->
-                currentState.copy(name = "2")
+            _uiState1.update {
+                "2"
             }
             delay(4000)
-            _uiState.update { currentState ->
-                currentState.copy(name = "3")
+            _uiState1.update {
+                "3"
             }
         }
     }
