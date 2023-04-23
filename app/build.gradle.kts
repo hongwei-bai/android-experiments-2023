@@ -59,10 +59,25 @@ android {
         compose = true
     }
     composeOptions {
-        kotlinCompilerExtensionVersion = "1.2.0"
+        kotlinCompilerExtensionVersion = Versions.kotlinCompilerExtension
     }
     packagingOptions {
         resources.excludes.add("/META-INF/{AL2.0,LGPL2.1}")
+    }
+
+    signingConfigs {
+        named("debug") {
+            keyAlias = "appKey"
+            keyPassword = "appKey"
+            storeFile = file("../exp23.jks")
+            storePassword = "appKey"
+        }
+        create("release") {
+            keyAlias = "appKey"
+            keyPassword = "appKey"
+            storeFile = file("../exp23.jks")
+            storePassword = "appKey"
+        }
     }
 }
 
@@ -82,26 +97,31 @@ dependencies {
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("com.jakewharton.retrofit:retrofit2-kotlin-coroutines-adapter:0.9.2")
-    implementation("com.google.accompanist:accompanist-systemuicontroller:0.27.0")
-    implementation("androidx.navigation:navigation-compose:2.5.3")
+    implementation("com.google.accompanist:accompanist-systemuicontroller:${Versions.composeAccompanist}")
+    implementation("androidx.navigation:navigation-compose:${Versions.navigationCompose}")
     implementation("androidx.compose.ui:ui:${Versions.compose}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
 
     // Payment
+//    implementation("com.google.android.gms:play-services-wallet:19.1.0")
+//    implementation("com.squareup.sdk.in-app-payments:card-entry:1.6.2")
+//    implementation("com.squareup.sdk.in-app-payments:google-pay:1.6.2")
+//    implementation("com.stripe:stripe-android:20.21.1")
+//    implementation("com.paypal.checkout:android-sdk:0.8.8")
     implementation("com.google.android.gms:play-services-wallet:19.1.0")
     implementation("com.squareup.sdk.in-app-payments:card-entry:1.6.2")
     implementation("com.squareup.sdk.in-app-payments:google-pay:1.6.2")
 
     // Below is from creating new project
-    implementation("androidx.core:core-ktx:1.7.0")
-    implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
-    implementation("androidx.activity:activity-compose:1.3.1")
+    implementation("androidx.core:core-ktx:${Versions.kotlin}")
+    implementation("androidx.lifecycle:lifecycle-runtime-ktx:${Versions.lifeCycle}")
+    implementation("androidx.activity:activity-compose:${Versions.activityCompose}")
     implementation("androidx.compose.ui:ui:${Versions.compose}")
     implementation("androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
-    implementation("androidx.compose.material3:material3:1.0.0-alpha11")
-    implementation("com.airbnb.android:lottie-compose:6.0.0")
-    implementation("com.airbnb.android:lottie:6.0.0")
-    implementation("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation("androidx.compose.material3:material3:1.1.0-beta02")
+    implementation("com.airbnb.android:lottie-compose:${Versions.lottieCompose}")
+    implementation("com.airbnb.android:lottie:${Versions.lottieCompose}")
+    implementation("androidx.hilt:hilt-navigation-compose:${Versions.hilt}")
 
     // Testing
     testImplementation("junit:junit:4.13.2")

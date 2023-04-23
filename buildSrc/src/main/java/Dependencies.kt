@@ -14,14 +14,8 @@
  * limitations under the License.
  */
 
-object Versions {
-    const val ktLint = "0.41.0"
-    const val compose = "1.2.0"
-}
-
 object Libs {
     const val androidGradlePlugin = "com.android.tools.build:gradle:7.0.0"
-    const val ktLint = "com.pinterest:ktlint:${Versions.ktLint}"
 
     object GoogleMaps {
         const val maps = "com.google.android.libraries.maps:maps:3.1.0-beta"
@@ -33,34 +27,34 @@ object Libs {
     }
 
     object Accompanist {
-        const val version = "0.18.0"
-        const val insets = "com.google.accompanist:accompanist-insets:$version"
+        const val insets =
+            "com.google.accompanist:accompanist-insets:${Versions.composeAccompanist}"
     }
 
     object Kotlin {
-        private const val version = "1.7.0"
-        const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$version"
-        const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$version"
-        const val extensions = "org.jetbrains.kotlin:kotlin-android-extensions:$version"
+        const val stdlib = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${Versions.kotlin}"
+        const val gradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
+        const val extensions = "org.jetbrains.kotlin:kotlin-android-extensions:${Versions.kotlin}"
 
         object Coroutines {
-            private const val version = "1.5.0"
-            const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:$version"
-            const val android = "org.jetbrains.kotlinx:kotlinx-coroutines-android:$version"
-            const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:$version"
+            const val core = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.coroutines}"
+            const val android =
+                "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}"
+            const val test = "org.jetbrains.kotlinx:kotlinx-coroutines-test:${Versions.coroutines}"
         }
     }
 
     object AndroidX {
         object Activity {
-            const val activityCompose = "androidx.activity:activity-compose:1.3.1"
+            const val activityCompose =
+                "androidx.activity:activity-compose:${Versions.activityCompose}"
         }
 
-        const val appcompat = "androidx.appcompat:appcompat:1.3.0"
+        const val appcompat = "androidx.appcompat:appcompat:1.5.1"
 
         object Compose {
             const val snapshot = ""
-            const val version = "1.0.2"
+            const val version = Versions.compose
 
             const val runtime = "androidx.compose.runtime:runtime:$version"
             const val runtimeLivedata = "androidx.compose.runtime:runtime-livedata:$version"
@@ -74,9 +68,10 @@ object Libs {
         }
 
         object Lifecycle {
-            private const val version = "2.3.1"
-            const val viewModelCompose = "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
-            const val viewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$version"
+            const val viewModelCompose =
+                "androidx.lifecycle:lifecycle-viewmodel-compose:1.0.0-alpha07"
+            const val viewModelKtx =
+                "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.lifeCycle}"
         }
 
         object Test {
@@ -84,21 +79,21 @@ object Libs {
             const val core = "androidx.test:core:$version"
             const val runner = "androidx.test:runner:$version"
             const val rules = "androidx.test:rules:$version"
+
             object Ext {
                 private const val version = "1.1.2"
                 const val junit = "androidx.test.ext:junit-ktx:$version"
             }
+
             const val espressoCore = "androidx.test.espresso:espresso-core:3.2.0"
         }
     }
 
     object Hilt {
-        private const val version = "2.42"//"2.38.1"
-
-        const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:$version"
-        const val android = "com.google.dagger:hilt-android:$version"
-        const val compiler = "com.google.dagger:hilt-compiler:$version"
-        const val testing = "com.google.dagger:hilt-android-testing:$version"
+        const val gradlePlugin = "com.google.dagger:hilt-android-gradle-plugin:${Versions.hiltAndroidPlugin}"
+        const val android = "com.google.dagger:hilt-android:${Versions.hiltAndroidPlugin}"
+        const val compiler = "com.google.dagger:hilt-compiler:${Versions.hiltAndroidPlugin}"
+        const val testing = "com.google.dagger:hilt-android-testing:${Versions.hiltAndroidPlugin}"
     }
 
     object JUnit {
@@ -107,12 +102,12 @@ object Libs {
     }
 
     object Coil {
-        const val coilCompose = "io.coil-kt:coil-compose:1.3.0"
+        const val coilCompose = "io.coil-kt:coil-compose:${Versions.ktCoil}"
     }
 }
 
 object Urls {
     const val mavenCentralSnapshotRepo = "https://oss.sonatype.org/content/repositories/snapshots/"
     const val composeSnapshotRepo = "https://androidx.dev/snapshots/builds/" +
-        "${Libs.AndroidX.Compose.snapshot}/artifacts/repository/"
+            "${Libs.AndroidX.Compose.snapshot}/artifacts/repository/"
 }

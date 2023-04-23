@@ -1,3 +1,5 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.exp23.ui.theme
 
 import android.app.Activity

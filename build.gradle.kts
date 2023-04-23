@@ -3,9 +3,6 @@ buildscript {
     repositories {
         google()
         mavenCentral()
-        maven {
-            setUrl("https://sdk.squareup.com/public/android")
-        }
     }
     dependencies {
         classpath(Libs.androidGradlePlugin)
@@ -17,5 +14,5 @@ buildscript {
 plugins {
     id("com.android.application") version "7.4.2" apply false
     id("com.android.library") version "7.4.2" apply false
-    id("org.jetbrains.kotlin.android") version "1.7.0" apply false
+    id("org.jetbrains.kotlin.android") version Versions.kotlin apply false
 }
