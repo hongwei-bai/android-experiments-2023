@@ -103,14 +103,13 @@ dependencies {
     implementation("androidx.compose.ui:ui-tooling-preview:${Versions.compose}")
 
     // Payment
-//    implementation("com.google.android.gms:play-services-wallet:19.1.0")
 //    implementation("com.squareup.sdk.in-app-payments:card-entry:1.6.2")
 //    implementation("com.squareup.sdk.in-app-payments:google-pay:1.6.2")
 //    implementation("com.stripe:stripe-android:20.21.1")
 //    implementation("com.paypal.checkout:android-sdk:0.8.8")
-    implementation("com.google.android.gms:play-services-wallet:19.1.0")
-    implementation("com.squareup.sdk.in-app-payments:card-entry:1.6.2")
-    implementation("com.squareup.sdk.in-app-payments:google-pay:1.6.2")
+    implementation("com.google.android.gms:play-services-wallet:${Versions.googleWallet}")
+    implementation("com.google.android.gms:play-services-pay:${Versions.googlePay}")
+    implementation(Libs.AndroidX.appcompat)
 
     // Below is from creating new project
     implementation("androidx.core:core-ktx:${Versions.kotlin}")

@@ -1,6 +1,7 @@
 package com.example.exp23.ui
 
 import androidx.compose.foundation.layout.*
+import androidx.compose.material3.Button
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -9,7 +10,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.viewmodel.compose.viewModel
+import com.example.exp23.ui.home.MainViewModel
 import com.example.exp23.ui.home.MainViewModelS
+import kotlinx.coroutines.flow.collectLatest
 
 /*
 * In my compose app, what could be the reasonsmy parent layout always got recomposed when only one of children views got data updated?
@@ -27,11 +30,13 @@ To solve this issue, you can try to minimize the dependencies between your paren
 */
 @Composable
 fun ParentScreen(
-    mainViewModelS: MainViewModelS = viewModel()
+    mainViewModel: MainViewModel = viewModel()
+//    mainViewModelS: MainViewModelS = viewModel()
 ) {
 //    val state by mainViewModelS.uiState.collectAsState()
 //    val state1 by mainViewModelS.uiState1.collectAsState()
 //    val state2 by mainViewModelS.uiState2.collectAsState()
+    val payState by mainViewModel.isGooglePayReady.collectAsState()
 
     Column(
         modifier = Modifier
@@ -53,6 +58,14 @@ fun ParentScreen(
 
         ChildScreen1Hongwei()
         ChildScreen2Hongwei()
+
+        if (payState) {
+            Button(onClick = {
+                mainViewModel.requestPayment()
+            }) {
+                Text(text = "Google Pay")
+            }
+        }
     }
 }
 

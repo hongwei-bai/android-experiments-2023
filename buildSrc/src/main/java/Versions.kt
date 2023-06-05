@@ -11,4 +11,7 @@ object Versions {
     const val lifeCycle = "2.3.1"
     const val navigationCompose = "2.5.3"
     const val lottieCompose = "6.0.0"
+
+    const val googleWallet = "19.1.0"
+    const val googlePay = "16.1.0"
 }
