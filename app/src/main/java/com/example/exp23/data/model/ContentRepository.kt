@@ -24,11 +24,9 @@ class ContentRepository @Inject constructor(
         if (response?.isSuccessful == true && body != null) {
             delay(1)
             val encodedContent = body.content
-            val model =
-                Gson().fromJson(
-                    Base64Utils.decodeBase64ToString(encodedContent),
-                    ContentData::class.java
-                )
+            val decoded = Base64Utils.decodeBase64ToString(encodedContent)
+            Log.d("bbbb", "decoded: $decoded")
+            val model = Gson().fromJson(decoded, List::class.java)
             Log.d("bbbb", "model: $model")
         }
     }

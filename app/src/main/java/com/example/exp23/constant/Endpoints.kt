@@ -13,4 +13,4 @@ const val MAIN_ENDPOINT2 =
     "/repos/$GITHUB_USER_NAME/$API_REPOSITORY/contents/api/main2.json"
 
 const val CONTENT_ENDPOINT =
-    "/repos/$GITHUB_USER_NAME/$API_REPOSITORY/contents/api/content.json"
+    "/repos/$GITHUB_USER_NAME/$API_REPOSITORY/gson/contents/api/content.json"
