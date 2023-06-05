@@ -75,7 +75,9 @@ fun HomeScreen(
                 Spacer(modifier = Modifier.requiredHeight(24.dp))
                 val paymentButtonText =
                     if (BuildConfig.DEBUG) "[Sandbox]Payment" else "Payment $1!!"
-                Button(onClick = { mainViewModel.makePayment() }) {
+                Button(onClick = {
+//                    mainViewModel.makePayment()
+                }) {
                     Text(text = paymentButtonText)
                 }
             }

@@ -38,7 +38,8 @@ class MainActivity : ComponentActivity() {
 //                    SystemUiController()
 //                    NavComposeApp()
 //                }
-                ParentScreen()
+//                ParentScreen()
+                HomeScreen()
             }
         }
     }

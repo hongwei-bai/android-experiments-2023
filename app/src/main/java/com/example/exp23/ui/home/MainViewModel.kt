@@ -1,10 +1,12 @@
 package com.example.exp23.ui.home
 
+import android.util.Log
 import android.widget.Toast
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.exp23.TestSingleton
 import com.example.exp23.data.Exp23AppRepository
+import com.example.exp23.data.model.ContentRepository
 import com.example.exp23.data.model.Exp23AppModel
 import com.example.exp23.ui.shared.UiState
 import com.google.android.gms.wallet.PaymentDataRequest
@@ -19,8 +21,15 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val exp23AppRepository: Exp23AppRepository
+    private val exp23AppRepository: Exp23AppRepository,
+    private val contentRepository: ContentRepository
 ) : ViewModel() {
+    init {
+        viewModelScope.launch {
+            contentRepository.test()
+        }
+    }
+
     val fuelAppModelFlow = exp23AppRepository.flow.map { model ->
         when (model) {
             is Exp23AppModel -> HomeUiState(
@@ -37,6 +46,7 @@ class MainViewModel @Inject constructor(
                     )
                 }
             )
+
             else -> HomeUiState(
                 state = UiState.Error
             )
